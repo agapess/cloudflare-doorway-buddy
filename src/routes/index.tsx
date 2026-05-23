@@ -8,7 +8,8 @@ import {
   Camera,
   CalendarCheck,
   Clapperboard,
-} from "lucide-react";
+  Monitor,
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
