@@ -8,22 +8,21 @@ import {
   Camera,
   CalendarCheck,
   Clapperboard,
-  ArrowUpRight,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "agapes.us — Directory" },
+      { title: "Agapes AI Project" },
       {
         name: "description",
         content:
-          "Quick access to all agapes.us services: chat, downloads, music, automation, photos, planner, studio, and more.",
+          "Agapes AI Project — gateway to chat, music, photos, planner, automation, studio and more.",
       },
-      { property: "og:title", content: "agapes.us — Directory" },
+      { property: "og:title", content: "Agapes AI Project" },
       {
         property: "og:description",
-        content: "Quick access to all agapes.us services.",
+        content: "Gateway to every Agapes service.",
       },
     ],
   }),
@@ -33,113 +32,105 @@ export const Route = createFileRoute("/")({
 type Service = {
   name: string;
   host: string;
-  description: string;
   icon: React.ComponentType<{ className?: string }>;
+  gradient: string;
 };
 
 const services: Service[] = [
-  {
-    name: "Chat",
-    host: "chat.agapes.us",
-    description: "Conversations & AI assistant",
-    icon: MessageCircle,
-  },
-  {
-    name: "Downloads",
-    host: "dl.agapes.us",
-    description: "File downloads & shared media",
-    icon: Download,
-  },
-  {
-    name: "Music",
-    host: "music.agapes.us",
-    description: "Personal music library",
-    icon: Music,
-  },
-  {
-    name: "n8n",
-    host: "n8n.agapes.us",
-    description: "Workflow automation",
-    icon: Workflow,
-  },
-  {
-    name: "Nosta",
-    host: "nosta.agapes.us",
-    description: "Nosta workspace",
-    icon: Sparkles,
-  },
-  {
-    name: "Photos",
-    host: "photo.agapes.us",
-    description: "Photo gallery & memories",
-    icon: Camera,
-  },
-  {
-    name: "Planner",
-    host: "planner.agapes.us",
-    description: "Tasks & scheduling",
-    icon: CalendarCheck,
-  },
-  {
-    name: "Studio",
-    host: "studio.agapes.us",
-    description: "Creative studio tools",
-    icon: Clapperboard,
-  },
+  { name: "Chat", host: "chat.agapes.us", icon: MessageCircle, gradient: "var(--grad-chat)" },
+  { name: "Downloads", host: "dl.agapes.us", icon: Download, gradient: "var(--grad-dl)" },
+  { name: "Music", host: "music.agapes.us", icon: Music, gradient: "var(--grad-music)" },
+  { name: "n8n", host: "n8n.agapes.us", icon: Workflow, gradient: "var(--grad-n8n)" },
+  { name: "Nosta", host: "nosta.agapes.us", icon: Sparkles, gradient: "var(--grad-nosta)" },
+  { name: "Photos", host: "photo.agapes.us", icon: Camera, gradient: "var(--grad-photo)" },
+  { name: "Planner", host: "planner.agapes.us", icon: CalendarCheck, gradient: "var(--grad-planner)" },
+  { name: "Studio", host: "studio.agapes.us", icon: Clapperboard, gradient: "var(--grad-studio)" },
 ];
 
 function Index() {
+  const count = services.length;
+
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 left-1/2 h-[500px] w-[800px] -translate-x-1/2 rounded-full bg-primary/10 blur-3xl" />
+    <div className="relative min-h-screen overflow-hidden bg-background text-foreground">
+      {/* Colorful aura background */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute left-1/2 top-1/2 size-[120vmin] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-40 blur-3xl"
+          style={{ background: "var(--grad-core)" }} />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,oklch(0.16_0.04_280/0.9)_75%)]" />
       </div>
 
-      <main className="relative mx-auto max-w-5xl px-6 py-20 sm:py-28">
-        <header className="mb-16 text-center">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-card/50 px-4 py-1.5 text-xs font-medium text-muted-foreground backdrop-blur">
-            <span className="size-1.5 rounded-full bg-emerald-500" />
-            agapes.us
-          </div>
-          <h1 className="text-balance text-5xl font-semibold tracking-tight sm:text-6xl">
-            Welcome home.
-          </h1>
-          <p className="mx-auto mt-4 max-w-lg text-balance text-base text-muted-foreground sm:text-lg">
-            A directory of everything running under agapes.us. Pick a service to continue.
-          </p>
-        </header>
+      <main className="relative flex min-h-screen flex-col items-center justify-center px-6 py-12">
+        <h1 className="sr-only">Agapes AI Project</h1>
 
-        <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((s) => {
+        {/* Orbit stage */}
+        <div className="relative aspect-square w-full max-w-[680px]">
+          {/* Orbit rings */}
+          <div className="absolute inset-[8%] rounded-full border border-white/10" />
+          <div className="absolute inset-[22%] rounded-full border border-white/5" />
+
+          {/* Center core */}
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+            <div className="relative">
+              <div
+                className="absolute inset-0 -m-6 rounded-full opacity-70 blur-2xl"
+                style={{ background: "var(--grad-core)" }}
+              />
+              <div
+                className="relative flex size-36 flex-col items-center justify-center rounded-full p-1 shadow-2xl sm:size-44"
+                style={{ background: "var(--grad-core)" }}
+              >
+                <div className="flex size-full flex-col items-center justify-center rounded-full bg-background/80 px-4 text-center backdrop-blur-md">
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">
+                    Welcome to
+                  </span>
+                  <span className="mt-1 bg-gradient-to-br from-white via-white to-white/70 bg-clip-text text-lg font-bold leading-tight tracking-tight text-transparent sm:text-xl">
+                    Agapes AI
+                    <br />
+                    Project
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Orbiting services */}
+          {services.map((s, i) => {
+            const angle = (i / count) * Math.PI * 2 - Math.PI / 2;
+            const x = 50 + Math.cos(angle) * 42;
+            const y = 50 + Math.sin(angle) * 42;
             const Icon = s.icon;
             return (
-              <li key={s.host}>
-                <a
-                  href={`https://${s.host}`}
-                  className="group relative flex h-full flex-col gap-3 rounded-2xl border border-border bg-card p-5 transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5"
-                >
-                  <div className="flex items-start justify-between">
-                    <div className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                      <Icon className="size-5" />
+              <a
+                key={s.host}
+                href={`https://${s.host}`}
+                className="group absolute -translate-x-1/2 -translate-y-1/2"
+                style={{ left: `${x}%`, top: `${y}%` }}
+              >
+                <div className="flex flex-col items-center gap-2">
+                  <div
+                    className="relative flex size-16 items-center justify-center rounded-2xl p-[2px] shadow-xl transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110 sm:size-20"
+                    style={{ background: s.gradient }}
+                  >
+                    <div
+                      className="absolute inset-0 -z-10 rounded-2xl opacity-60 blur-xl transition-opacity group-hover:opacity-100"
+                      style={{ background: s.gradient }}
+                    />
+                    <div className="flex size-full items-center justify-center rounded-[14px] bg-background/70 backdrop-blur-md">
+                      <Icon className="size-6 text-white sm:size-7" />
                     </div>
-                    <ArrowUpRight className="size-4 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
                   </div>
-                  <div>
-                    <h2 className="text-base font-semibold tracking-tight">{s.name}</h2>
-                    <p className="mt-0.5 text-sm text-muted-foreground">{s.description}</p>
-                  </div>
-                  <p className="mt-auto pt-2 font-mono text-xs text-muted-foreground/70">
-                    {s.host}
-                  </p>
-                </a>
-              </li>
+                  <span className="rounded-full bg-background/70 px-2.5 py-0.5 text-xs font-medium text-foreground/90 backdrop-blur-md">
+                    {s.name}
+                  </span>
+                </div>
+              </a>
             );
           })}
-        </ul>
+        </div>
 
-        <footer className="mt-20 text-center text-xs text-muted-foreground">
-          © {new Date().getFullYear()} agapes.us
-        </footer>
+        <p className="mt-10 text-center text-xs text-muted-foreground">
+          Tap a planet to launch · agapes.us
+        </p>
       </main>
     </div>
   );
