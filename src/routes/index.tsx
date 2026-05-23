@@ -9,6 +9,8 @@ import {
   CalendarCheck,
   Clapperboard,
   Monitor,
+} from "lucide-react";
+
 
 
 export const Route = createFileRoute("/")({
