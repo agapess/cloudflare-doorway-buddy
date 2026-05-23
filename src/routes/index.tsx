@@ -48,6 +48,7 @@ const services: Service[] = [
   { name: "Photos", host: "photo.agapes.us", icon: Camera, gradient: "var(--grad-photo)" },
   { name: "Planner", host: "planner.agapes.us", icon: CalendarCheck, gradient: "var(--grad-planner)" },
   { name: "Studio", host: "studio.agapes.us", icon: Clapperboard, gradient: "var(--grad-studio)" },
+  { name: "Remote", host: "remote.agapes.us", icon: Monitor, gradient: "var(--grad-n8n)" },
 ];
 
 function Index() {
