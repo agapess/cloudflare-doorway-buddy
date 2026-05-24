@@ -332,6 +332,7 @@ function Index() {
                       <Icon className="size-5 text-white sm:size-6" />
                     </div>
                     <div
+                      aria-hidden="true"
                       className="absolute -right-0.5 -top-0.5 size-2.5 rounded-full border-2 border-background"
                       style={{ background: STATUS_COLORS[svcStatus] }}
                       title={svcStatus}
