@@ -350,6 +350,36 @@ function Index() {
         <p className="mt-6 text-center text-xs tabular-nums text-muted-foreground">
           {clock}
         </p>
+
+        <div className="mt-3 opacity-60">
+          <img
+            src="https://hits.sh/agapes.us.svg"
+            alt="visitor count"
+            height="20"
+          />
+        </div>
+
+        <footer className="mt-4 flex items-center gap-3 text-xs text-muted-foreground">
+          <a
+            href="mailto:ali_venus@yahoo.com"
+            className="flex items-center gap-1 transition-colors hover:text-foreground"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Mail className="size-3" />
+            ali_venus@yahoo.com
+          </a>
+          <span>·</span>
+          <a
+            href="https://t.me/agapes"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 transition-colors hover:text-foreground"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Send className="size-3" />
+            @agapes
+          </a>
+        </footer>
       </main>
     </div>
   );
