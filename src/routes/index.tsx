@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, useEffect, useRef } from "react";
 import {
-  MessageCircle,
+  Bot,
   Download,
   Music,
   Workflow,
@@ -54,11 +54,11 @@ const STATUS_COLORS: Record<Status, string> = {
 
 const services: Service[] = [
   {
-    name: "Chat",
+    name: "Local LLM",
     host: "chat.agapes.us",
-    icon: MessageCircle,
+    icon: Bot,
     gradient: "var(--grad-chat)",
-    tagline: "Private AI chat",
+    tagline: "Local AI models",
     description: "Self-hosted conversations with your favorite AI models — fast, private, and always available.",
   },
   {
