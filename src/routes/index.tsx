@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   MessageCircle,
   Download,
@@ -125,7 +125,9 @@ function Index() {
   const [displayedService, setDisplayedService] = useState<Service | null>(null);
   const [centerVisible, setCenterVisible] = useState(true);
 
+  const hasMounted = useRef(false);
   useEffect(() => {
+    if (!hasMounted.current) { hasMounted.current = true; return; }
     setCenterVisible(false);
     const t = setTimeout(() => {
       setDisplayedService(selected);
