@@ -79,12 +79,12 @@ const services: Service[] = [
     description: "Self-hosted conversations with your favorite AI models — fast, private, and always available.",
   },
   {
-    name: "Downloads",
+    name: "Downloader",
     host: "dl.agapes.us",
     icon: Download,
     gradient: "var(--grad-dl)",
-    tagline: "Files & media",
-    description: "Personal download hub for shared files, archives, and media drops.",
+    tagline: "Video downloader",
+    description: "Download videos from any website or social media platform — YouTube, Instagram, TikTok, X, and more.",
   },
   {
     name: "AI Music",
@@ -291,13 +291,16 @@ function Index() {
                       </>
                     ) : (
                       <>
-                        <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">
-                          Welcome to
+                        <span className="text-[9px] font-semibold uppercase tracking-[0.3em] text-muted-foreground/70">
+                          Your AI Universe
                         </span>
-                        <span className="mt-1 bg-gradient-to-br from-white via-white to-white/70 bg-clip-text text-xl font-bold leading-tight tracking-tight text-transparent">
+                        <span className="mt-1 bg-gradient-to-br from-white via-purple-200 to-pink-300 bg-clip-text text-2xl font-black leading-tight tracking-tight text-transparent drop-shadow-lg">
                           Agapes Ai
                         </span>
-                        <span className="mt-2 text-[10px] text-muted-foreground">
+                        <span className="mt-1 text-[9px] font-medium text-muted-foreground/80">
+                          9 AI tools · one portal
+                        </span>
+                        <span className="mt-2 rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 text-[9px] font-semibold uppercase tracking-widest text-white/60">
                           Tap a planet
                         </span>
                       </>
