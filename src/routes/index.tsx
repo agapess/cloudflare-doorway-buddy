@@ -148,9 +148,10 @@ function Index() {
     return () => clearTimeout(t);
   }, [selected]);
 
-  const [clock, setClock] = useState(formatClock);
+  const [clock, setClock] = useState("");
 
   useEffect(() => {
+    setClock(formatClock());
     const id = setInterval(() => setClock(formatClock()), 1000);
     return () => clearInterval(id);
   }, []);
