@@ -44,6 +44,14 @@ type Service = {
   description: string;
 };
 
+type Status = "up" | "down" | "unknown";
+
+const STATUS_COLORS: Record<Status, string> = {
+  up: "oklch(0.72 0.2 140)",
+  down: "oklch(0.72 0.22 25)",
+  unknown: "oklch(0.5 0 0)",
+};
+
 const services: Service[] = [
   {
     name: "Chat",
@@ -156,6 +164,42 @@ function Index() {
     return () => clearInterval(id);
   }, []);
 
+  const [status, setStatus] = useState<Record<string, Status>>(
+    Object.fromEntries(services.map((s) => [s.host, "unknown" as Status]))
+  );
+
+  useEffect(() => {
+    const check = async () => {
+      const entries = await Promise.allSettled(
+        services.map(async (s): Promise<[string, Status]> => {
+          try {
+            await fetch(`https://${s.host}`, {
+              method: "HEAD",
+              signal: AbortSignal.timeout(5000),
+              mode: "no-cors",
+            });
+            return [s.host, "up"];
+          } catch {
+            return [s.host, "down"];
+          }
+        })
+      );
+      setStatus(
+        Object.fromEntries(
+          entries
+            .filter(
+              (r): r is PromiseFulfilledResult<[string, Status]> =>
+                r.status === "fulfilled"
+            )
+            .map((r) => r.value)
+        )
+      );
+    };
+    check();
+    const id = setInterval(check, 60_000);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <div
       className="relative min-h-screen overflow-hidden bg-background text-foreground"
@@ -257,6 +301,7 @@ function Index() {
             const Icon = s.icon;
             const isActive = selected?.host === s.host;
             const isDimmed = selected && !isActive;
+            const svcStatus = status[s.host] ?? "unknown";
             return (
               <button
                 key={s.host}
@@ -286,6 +331,11 @@ function Index() {
                     <div className="flex size-full items-center justify-center rounded-[14px] bg-background/70 backdrop-blur-md">
                       <Icon className="size-5 text-white sm:size-6" />
                     </div>
+                    <div
+                      className="absolute -right-0.5 -top-0.5 size-2.5 rounded-full border-2 border-background"
+                      style={{ background: STATUS_COLORS[svcStatus] }}
+                      title={svcStatus}
+                    />
                   </div>
                   <span className="rounded-full bg-background/70 px-2 py-0.5 text-[10px] font-medium text-foreground/90 backdrop-blur-md sm:text-xs">
                     {s.name}
