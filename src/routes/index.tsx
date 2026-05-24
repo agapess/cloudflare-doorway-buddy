@@ -278,9 +278,7 @@ function Index() {
                           Welcome to
                         </span>
                         <span className="mt-1 bg-gradient-to-br from-white via-white to-white/70 bg-clip-text text-xl font-bold leading-tight tracking-tight text-transparent">
-                          Agapes AI
-                          <br />
-                          Project
+                          Agapes Ai
                         </span>
                         <span className="mt-2 text-[10px] text-muted-foreground">
                           Tap a planet
@@ -356,6 +354,7 @@ function Index() {
             src="https://hits.sh/agapes.us.svg"
             alt="visitor count"
             height="20"
+            width="88"
           />
         </div>
 
