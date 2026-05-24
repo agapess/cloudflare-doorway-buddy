@@ -86,7 +86,7 @@ const services: Service[] = [
     description: "Visual automations that connect every service and quietly run in the background.",
   },
   {
-    name: "Nosta",
+    name: "Nostalogy Chat",
     host: "nosta.agapes.us",
     icon: Sparkles,
     gradient: "var(--grad-nosta)",
