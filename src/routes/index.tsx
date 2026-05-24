@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   MessageCircle,
   Download,
@@ -12,6 +12,8 @@ import {
   Monitor,
   ArrowUpRight,
   X,
+  Mail,
+  Send,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -120,6 +122,17 @@ const services: Service[] = [
 function Index() {
   const count = services.length;
   const [selected, setSelected] = useState<Service | null>(null);
+  const [displayedService, setDisplayedService] = useState<Service | null>(null);
+  const [centerVisible, setCenterVisible] = useState(true);
+
+  useEffect(() => {
+    setCenterVisible(false);
+    const t = setTimeout(() => {
+      setDisplayedService(selected);
+      setCenterVisible(true);
+    }, 150);
+    return () => clearTimeout(t);
+  }, [selected]);
 
   return (
     <div
@@ -139,62 +152,76 @@ function Index() {
         <h1 className="sr-only">Agapes AI Project</h1>
 
         <div className="relative aspect-square w-full max-w-[680px]">
-          <div className="absolute inset-[8%] rounded-full border border-white/10" />
-          <div className="absolute inset-[22%] rounded-full border border-white/5" />
+          <div className="absolute inset-[8%] animate-spin-cw rounded-full border border-white/10" />
+          <div className="absolute inset-[22%] animate-spin-ccw rounded-full border border-white/5" />
 
           {/* Center core — welcome OR selected service info */}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             <div className="relative" onClick={(e) => e.stopPropagation()}>
               <div
-                className="absolute inset-0 -m-6 rounded-full opacity-70 blur-2xl transition-all duration-500"
-                style={{ background: selected ? selected.gradient : "var(--grad-core)" }}
+                className="absolute inset-0 -m-6 animate-pulse-glow rounded-full blur-2xl transition-all duration-500"
+                style={{
+                  background: displayedService
+                    ? displayedService.gradient
+                    : "var(--grad-core)",
+                }}
               />
               <div
                 className="relative flex size-44 items-center justify-center rounded-full p-1 shadow-2xl transition-all duration-500 sm:size-52"
-                style={{ background: selected ? selected.gradient : "var(--grad-core)" }}
+                style={{
+                  background: displayedService
+                    ? displayedService.gradient
+                    : "var(--grad-core)",
+                }}
               >
                 <div className="flex size-full flex-col items-center justify-center rounded-full bg-background/85 px-5 text-center backdrop-blur-md">
-                  {selected ? (
-                    <>
-                      <button
-                        onClick={() => setSelected(null)}
-                        className="absolute right-3 top-3 rounded-full p-1 text-muted-foreground transition-colors hover:bg-white/10 hover:text-foreground"
-                        aria-label="Close"
-                      >
-                        <X className="size-3.5" />
-                      </button>
-                      <selected.icon className="size-6 text-white" />
-                      <span className="mt-1.5 text-base font-bold leading-tight">
-                        {selected.name}
-                      </span>
-                      <span className="mt-0.5 text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
-                        {selected.tagline}
-                      </span>
-                      <p className="mt-1.5 line-clamp-3 text-[11px] leading-snug text-foreground/80">
-                        {selected.description}
-                      </p>
-                      <a
-                        href={`https://${selected.host}`}
-                        className="mt-2 inline-flex items-center gap-1 rounded-full bg-white/10 px-3 py-1 text-[11px] font-semibold text-foreground transition-colors hover:bg-white/20"
-                      >
-                        Open <ArrowUpRight className="size-3" />
-                      </a>
-                    </>
-                  ) : (
-                    <>
-                      <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">
-                        Welcome to
-                      </span>
-                      <span className="mt-1 bg-gradient-to-br from-white via-white to-white/70 bg-clip-text text-xl font-bold leading-tight tracking-tight text-transparent">
-                        Agapes AI
-                        <br />
-                        Project
-                      </span>
-                      <span className="mt-2 text-[10px] text-muted-foreground">
-                        Tap a planet
-                      </span>
-                    </>
-                  )}
+                  <div
+                    className={`flex size-full flex-col items-center justify-center transition-opacity duration-150 ${
+                      centerVisible ? "opacity-100" : "opacity-0"
+                    }`}
+                  >
+                    {displayedService ? (
+                      <>
+                        <button
+                          onClick={() => setSelected(null)}
+                          className="absolute right-3 top-3 rounded-full p-1 text-muted-foreground transition-colors hover:bg-white/10 hover:text-foreground"
+                          aria-label="Close"
+                        >
+                          <X className="size-3.5" />
+                        </button>
+                        <displayedService.icon className="size-6 text-white" />
+                        <span className="mt-1.5 text-base font-bold leading-tight">
+                          {displayedService.name}
+                        </span>
+                        <span className="mt-0.5 text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
+                          {displayedService.tagline}
+                        </span>
+                        <p className="mt-1.5 line-clamp-3 text-[11px] leading-snug text-foreground/80">
+                          {displayedService.description}
+                        </p>
+                        <a
+                          href={`https://${displayedService.host}`}
+                          className="mt-2 inline-flex items-center gap-1 rounded-full bg-white/10 px-3 py-1 text-[11px] font-semibold text-foreground transition-colors hover:bg-white/20"
+                        >
+                          Open <ArrowUpRight className="size-3" />
+                        </a>
+                      </>
+                    ) : (
+                      <>
+                        <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-muted-foreground">
+                          Welcome to
+                        </span>
+                        <span className="mt-1 bg-gradient-to-br from-white via-white to-white/70 bg-clip-text text-xl font-bold leading-tight tracking-tight text-transparent">
+                          Agapes AI
+                          <br />
+                          Project
+                        </span>
+                        <span className="mt-2 text-[10px] text-muted-foreground">
+                          Tap a planet
+                        </span>
+                      </>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
