@@ -119,6 +119,18 @@ const services: Service[] = [
   },
 ];
 
+function formatClock(): string {
+  const now = new Date();
+  const time = now.toLocaleTimeString("en-GB");
+  const date = now.toLocaleDateString("en-GB", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+  return `${time} · ${date}`;
+}
+
 function Index() {
   const count = services.length;
   const [selected, setSelected] = useState<Service | null>(null);
@@ -135,6 +147,13 @@ function Index() {
     }, 150);
     return () => clearTimeout(t);
   }, [selected]);
+
+  const [clock, setClock] = useState(formatClock);
+
+  useEffect(() => {
+    const id = setInterval(() => setClock(formatClock()), 1000);
+    return () => clearInterval(id);
+  }, []);
 
   return (
     <div
@@ -276,8 +295,8 @@ function Index() {
           })}
         </div>
 
-        <p className="mt-10 text-center text-xs text-muted-foreground">
-          Tap a planet to see what it does · agapes.us
+        <p className="mt-6 text-center text-xs tabular-nums text-muted-foreground">
+          {clock}
         </p>
       </main>
     </div>
