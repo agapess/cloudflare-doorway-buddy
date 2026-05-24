@@ -19,17 +19,34 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Agapes AI Project" },
+      { title: "Agapes Ai — Local LLM · AI Music · AI Photo · Anonymous Chat & More" },
       {
         name: "description",
         content:
-          "Agapes AI Project — gateway to chat, music, photos, planner, automation, studio and more.",
+          "Agapes Ai is your all-in-one AI portal. Access Local LLM chat, AI music generation, AI photo creation, Nostalogy anonymous chat, AI code planner, AI video studio, and instant browser-based remote access.",
       },
-      { property: "og:title", content: "Agapes AI Project" },
+      {
+        name: "keywords",
+        content:
+          "Agapes Ai, local LLM, AI music generator, AI photo generator, anonymous chat, Nostalogy chat, AI code planner, AI video studio, remote desktop browser, self-hosted AI, agapes.us",
+      },
+      { name: "author", content: "Agapes Ai" },
+      { property: "og:title", content: "Agapes Ai — Local LLM · AI Music · AI Photo & More" },
       {
         property: "og:description",
-        content: "Gateway to every Agapes service.",
+        content:
+          "Your gateway to self-hosted AI services — Local LLM, AI music, AI photo, anonymous chat, code planning, AI video, and instant remote access. All in one place.",
       },
+      { property: "og:url", content: "https://agapes.us" },
+      { name: "twitter:title", content: "Agapes Ai — Local LLM · AI Music · AI Photo & More" },
+      {
+        name: "twitter:description",
+        content:
+          "Your gateway to self-hosted AI services — Local LLM, AI music, AI photo, anonymous chat, code planning, AI video, and instant remote access.",
+      },
+    ],
+    links: [
+      { rel: "canonical", href: "https://agapes.us" },
     ],
   }),
   component: Index,
