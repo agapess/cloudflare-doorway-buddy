@@ -333,7 +333,10 @@ function Index() {
                 style={{ left: `${x}%`, top: `${y}%` }}
                 aria-label={s.name}
               >
-                <div className="flex flex-col items-center gap-2">
+                <div
+                  className="flex flex-col items-center gap-2 animate-float"
+                  style={{ animationDelay: `${i * 0.4}s`, animationDuration: `${6 + (i % 3)}s` }}
+                >
                   <div
                     className={`relative flex size-14 items-center justify-center rounded-2xl p-[2px] shadow-xl transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110 sm:size-16 ${
                       isActive ? "-translate-y-1 scale-110" : ""

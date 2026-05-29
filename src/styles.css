@@ -62,6 +62,8 @@
   --animate-pulse-glow: pulse-glow 4s ease-in-out infinite;
   --animate-spin-cw: spin-cw 30s linear infinite;
   --animate-spin-ccw: spin-ccw 45s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-orbit-drift: orbit-drift 8s ease-in-out infinite;
 }
 
 :root {
@@ -158,6 +160,13 @@
 @keyframes spin-ccw {
   from { transform: rotate(0deg); }
   to { transform: rotate(-360deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  25% { transform: translateY(-6px) translateX(3px); }
+  50% { transform: translateY(-2px) translateX(-4px); }
+  75% { transform: translateY(-8px) translateX(2px); }
 }
 
 @layer base {
