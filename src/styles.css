@@ -64,6 +64,9 @@
   --animate-spin-ccw: spin-ccw 45s linear infinite;
   --animate-float: float 6s ease-in-out infinite;
   --animate-orbit-drift: orbit-drift 8s ease-in-out infinite;
+  --animate-sun-pulse: sun-pulse 5s ease-in-out infinite;
+  --animate-sun-rays: sun-rays 20s linear infinite;
+  --animate-sun-flare: sun-flare 7s ease-in-out infinite;
 }
 
 :root {
