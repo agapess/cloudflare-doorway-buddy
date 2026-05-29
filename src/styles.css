@@ -162,6 +162,13 @@
   to { transform: rotate(-360deg); }
 }
 
+@keyframes float {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0) translateX(0); }
+  25% { transform: translate(-50%, -50%) translateY(-6px) translateX(3px); }
+  50% { transform: translate(-50%, -50%) translateY(-2px) translateX(-4px); }
+  75% { transform: translate(-50%, -50%) translateY(-8px) translateX(2px); }
+}
+
 @layer base {
   * {
     border-color: var(--color-border);
