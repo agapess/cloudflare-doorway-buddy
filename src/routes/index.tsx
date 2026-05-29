@@ -241,6 +241,33 @@ function Index() {
           {/* Center core — welcome OR selected service info */}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             <div className="relative" onClick={(e) => e.stopPropagation()}>
+              {/* Outer sun corona — wide soft halo */}
+              <div
+                className="pointer-events-none absolute inset-0 -m-32 animate-sun-pulse rounded-full blur-3xl"
+                style={{
+                  background: displayedService
+                    ? displayedService.gradient
+                    : "radial-gradient(circle, oklch(0.85 0.2 70 / 0.7), oklch(0.78 0.22 35 / 0.5) 40%, transparent 70%)",
+                }}
+              />
+              {/* Rotating sun rays */}
+              <div
+                className="pointer-events-none absolute inset-0 -m-20 animate-sun-rays rounded-full opacity-70 blur-md"
+                style={{
+                  background:
+                    "conic-gradient(from 0deg, transparent 0deg, oklch(0.9 0.2 80 / 0.5) 10deg, transparent 25deg, transparent 60deg, oklch(0.85 0.22 50 / 0.45) 70deg, transparent 85deg, transparent 120deg, oklch(0.9 0.2 80 / 0.5) 130deg, transparent 145deg, transparent 180deg, oklch(0.85 0.22 50 / 0.45) 190deg, transparent 205deg, transparent 240deg, oklch(0.9 0.2 80 / 0.5) 250deg, transparent 265deg, transparent 300deg, oklch(0.85 0.22 50 / 0.45) 310deg, transparent 325deg)",
+                }}
+              />
+              {/* Inner flare glow */}
+              <div
+                className="pointer-events-none absolute inset-0 -m-10 animate-sun-flare rounded-full blur-2xl"
+                style={{
+                  background: displayedService
+                    ? displayedService.gradient
+                    : "radial-gradient(circle, oklch(0.92 0.18 75 / 0.9), oklch(0.78 0.22 30 / 0.6) 50%, transparent 80%)",
+                }}
+              />
+              {/* Original tight glow */}
               <div
                 className="absolute inset-0 -m-6 animate-pulse-glow rounded-full blur-2xl transition-all duration-500"
                 style={{
