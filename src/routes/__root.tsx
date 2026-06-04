@@ -77,6 +77,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Agapes Ai" },
       { name: "twitter:card", content: "summary_large_image" },
+      { title: "Lovable App" },
+      { property: "og:title", content: "Lovable App" },
+      { name: "twitter:title", content: "Lovable App" },
+      { name: "description", content: "Cloudflare Linker creates a visually engaging static webpage to link your Cloudflare domain to various subdomains." },
+      { property: "og:description", content: "Cloudflare Linker creates a visually engaging static webpage to link your Cloudflare domain to various subdomains." },
+      { name: "twitter:description", content: "Cloudflare Linker creates a visually engaging static webpage to link your Cloudflare domain to various subdomains." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c384b749-55ed-4306-afef-b29db3b4e923/id-preview-db75db7b--287b0cb6-9951-46d4-bbd0-448a993f1bd9.lovable.app-1780616486117.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c384b749-55ed-4306-afef-b29db3b4e923/id-preview-db75db7b--287b0cb6-9951-46d4-bbd0-448a993f1bd9.lovable.app-1780616486117.png" },
     ],
     links: [
       {
