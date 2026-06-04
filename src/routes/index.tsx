@@ -14,6 +14,7 @@ import {
   X,
   Mail,
   Send,
+  Globe,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
