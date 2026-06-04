@@ -334,7 +334,7 @@ function Index() {
                           Agapes Ai
                         </span>
                         <span className="mt-1 text-[9px] font-medium text-muted-foreground/80">
-                          9 AI tools · one portal
+                          10 AI tools · one portal
                         </span>
                         <span className="mt-2 rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 text-[9px] font-semibold uppercase tracking-widest text-white/60">
                           Tap a planet
