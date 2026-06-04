@@ -417,26 +417,47 @@ function Index() {
           />
         </div>
 
-        <footer className="mt-4 flex items-center gap-3 text-xs text-muted-foreground">
-          <a
-            href="mailto:ali_venus@yahoo.com"
-            className="flex items-center gap-1 transition-colors hover:text-foreground"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <Mail className="size-3" />
-            ali_venus@yahoo.com
-          </a>
-          <span>·</span>
-          <a
-            href="https://t.me/agapes"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1 transition-colors hover:text-foreground"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <Send className="size-3" />
-            @agapes
-          </a>
+        <footer className="mt-4 flex flex-col items-center gap-3">
+          <div className="flex items-center gap-3 text-xs text-muted-foreground">
+            <a
+              href="mailto:ali_venus@yahoo.com"
+              className="flex items-center gap-1 transition-colors hover:text-foreground"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Mail className="size-3" />
+              ali_venus@yahoo.com
+            </a>
+            <span>·</span>
+            <a
+              href="https://t.me/agapes"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 transition-colors hover:text-foreground"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Send className="size-3" />
+              @agapes
+            </a>
+          </div>
+          <div className="flex items-center gap-3 text-[10px] text-muted-foreground/60">
+            <span>&copy; {new Date().getFullYear()} Agapes Ai. All rights reserved.</span>
+            <span>·</span>
+            <a
+              href="/privacy"
+              className="transition-colors hover:text-foreground"
+              onClick={(e) => e.stopPropagation()}
+            >
+              Privacy Policy
+            </a>
+            <span>·</span>
+            <a
+              href="/terms"
+              className="transition-colors hover:text-foreground"
+              onClick={(e) => e.stopPropagation()}
+            >
+              Terms of Use
+            </a>
+          </div>
         </footer>
       </main>
     </div>
