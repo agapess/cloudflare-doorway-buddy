@@ -80,6 +80,14 @@ const services: Service[] = [
     description: "Create music videos and video clips with AI. Turn your ideas into cinematic stories — no editing skills needed.",
   },
   {
+    name: "AI Web Builder",
+    host: "web.agapes.us",
+    icon: Globe,
+    gradient: "var(--grad-web)",
+    tagline: "Agapes Ai Web Builder",
+    description: "Describe your dream website and let AI build it for you — beautiful, responsive pages ready to publish in minutes.",
+  },
+  {
     name: "Downloader",
     host: "dl.agapes.us",
     icon: Download,
