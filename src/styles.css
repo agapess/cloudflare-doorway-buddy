@@ -112,6 +112,7 @@
   --grad-photo: linear-gradient(135deg, oklch(0.76 0.22 315), oklch(0.74 0.22 345));
   --grad-planner: linear-gradient(135deg, oklch(0.82 0.18 85), oklch(0.72 0.22 30));
   --grad-studio: linear-gradient(135deg, oklch(0.74 0.22 345), oklch(0.72 0.22 205));
+  --grad-web: linear-gradient(135deg, oklch(0.72 0.22 205), oklch(0.78 0.2 145));
   --grad-core: conic-gradient(from 180deg, oklch(0.75 0.22 25), oklch(0.8 0.2 80), oklch(0.78 0.2 140), oklch(0.72 0.2 200), oklch(0.72 0.22 260), oklch(0.76 0.22 310), oklch(0.75 0.22 25));
 }
 

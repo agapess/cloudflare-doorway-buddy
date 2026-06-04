@@ -14,6 +14,7 @@ import {
   X,
   Mail,
   Send,
+  Globe,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -77,6 +78,14 @@ const services: Service[] = [
     gradient: "var(--grad-studio)",
     tagline: "Agapes Ai Studio",
     description: "Create music videos and video clips with AI. Turn your ideas into cinematic stories — no editing skills needed.",
+  },
+  {
+    name: "AI Web Builder",
+    host: "web.agapes.us",
+    icon: Globe,
+    gradient: "var(--grad-web)",
+    tagline: "Agapes Ai Web Builder",
+    description: "Describe your dream website and let AI build it for you — beautiful, responsive pages ready to publish in minutes.",
   },
   {
     name: "Downloader",
@@ -325,7 +334,7 @@ function Index() {
                           Agapes Ai
                         </span>
                         <span className="mt-1 text-[9px] font-medium text-muted-foreground/80">
-                          9 AI tools · one portal
+                          10 AI tools · one portal
                         </span>
                         <span className="mt-2 rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 text-[9px] font-semibold uppercase tracking-widest text-white/60">
                           Tap a planet
